@@ -1,0 +1,212 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── Photo col ── */
+.photo-col {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.photo-frame {
+  position: relative;
+
+  .photo-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse at center, rgba(0,229,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(20%) contrast(1.05);
+    border: 1px solid var(--border);
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: -16px;
+    bottom: -16px;
+    border: 1px solid rgba(0,229,255,0.2);
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .photo-badge {
+    position: absolute;
+    bottom: 20px;
+    left: -20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    backdrop-filter: blur(10px);
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #00ff88;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+.photo-code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 16px 20px;
+
+  .code-snippet {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    white-space: pre;
+
+    .c-cyan  { color: var(--accent-cyan); }
+    .c-orange { color: var(--accent-orange); }
+    .c-str   { color: #9AE6B4; }
+  }
+}
+
+/* ── Text col ── */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+
+  strong { color: var(--text-primary); font-weight: 500; }
+  .hl {
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(0,229,255,0.06);
+    padding: 1px 6px;
+  }
+}
+
+.traits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.trait {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    border-color: rgba(0,229,255,0.3);
+    box-shadow: 0 4px 24px rgba(0,229,255,0.05);
+  }
+
+  .trait-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+
+  .trait-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    strong {
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      font-family: var(--font-display);
+    }
+
+    span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+  }
+}
+
+.stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+
+  .stack-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0,229,255,0.2);
+  padding: 4px 12px;
+  letter-spacing: 0.05em;
+  background: rgba(0,229,255,0.04);
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: rgba(0,229,255,0.1);
+    border-color: rgba(0,229,255,0.4);
+  }
+}
+
+.about-actions { display: flex; gap: 16px; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(0,255,136,0); }
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .photo-col  { position: static; max-width: 400px; margin: 0 auto; }
+  .traits     { grid-template-columns: 1fr; }
+}

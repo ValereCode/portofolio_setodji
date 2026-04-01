@@ -1,0 +1,78 @@
+<section id="about" class="grid-bg">
+  <div class="section">
+    <div class="about-grid">
+
+      <!-- Photo side -->
+      <div class="photo-col reveal">
+        <div class="photo-frame">
+          <div class="photo-glow"></div>
+          <img [src]="photoUrl" alt="SETODJI" class="photo" />
+          <div class="photo-badge">
+            <span class="badge-dot"></span>
+            <span class="mono">Open to work</span>
+          </div>
+        </div>
+        <div class="photo-code">
+          <pre class="code-snippet"><span class="c-cyan">const</span> dev = &#123;
+  <span class="c-orange">name</span>: <span class="c-str">"SETODJI"</span>,
+  <span class="c-orange">passion</span>: <span class="c-str">"∞"</span>,
+  <span class="c-orange">status</span>: <span class="c-str">"building"</span>
+&#125;</pre>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="text-col">
+        <div class="section-tag reveal">À propos de moi</div>
+        <h2 class="section-title reveal">
+          Dev passionné,<br />
+          <span>construire c'est vivre</span>
+        </h2>
+
+        <div class="about-text reveal">
+          <p>
+            Je suis <strong>développeur mobile & web</strong> avec une obsession pour la qualité du code
+            et l'expérience utilisateur. J'aime transformer des idées en produits concrets
+            qui ont un vrai impact.
+          </p>
+          <p>
+            Spécialisé en <span class="hl">Flutter</span> pour le mobile et <span class="hl">Angular</span>
+            pour le web, avec une solide maîtrise du backend via <span class="hl">FastAPI</span> et
+            <span class="hl">Firebase</span>. J'automatise, j'optimise et je livre.
+          </p>
+          <p>
+            En dehors du code, j'explore l'IA, je construis des side projects
+            et je partage mes apprentissages.
+          </p>
+        </div>
+
+        <div class="traits reveal">
+          <div class="trait" *ngFor="let t of traits">
+            <div class="trait-icon">{{ t.icon }}</div>
+            <div class="trait-info">
+              <strong>{{ t.label }}</strong>
+              <span>{{ t.desc }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-row reveal">
+          <span class="mono stack-label">Tech stack :</span>
+          <div class="stack-tags">
+            <span class="tag" *ngFor="let s of stack">{{ s }}</span>
+          </div>
+        </div>
+
+        <div class="about-actions reveal">
+          <a href="assets/cv-setodji.pdf" download class="btn-glow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            Télécharger CV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Firebase
+.firebase
+
+# IDE
+.idea
+.vscode
+
+# System
+.DS_Store
+Thumbs.db
+
+# Angular cache
+.angular

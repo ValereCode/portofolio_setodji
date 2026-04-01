@@ -1,0 +1,93 @@
+<section id="projects" class="grid-bg">
+  <div class="section">
+
+    <div class="section-tag reveal">Projets</div>
+    <h2 class="section-title reveal">
+      Ce que j'ai<br /><span>construit</span>
+    </h2>
+
+    <!-- Featured projects -->
+    <div class="projects-featured">
+      <div
+        class="project-card featured reveal"
+        *ngFor="let p of projects.slice(0,2); let i = index"
+        [class.color-orange]="p.color === 'orange'"
+        [class.color-gold]="p.color === 'gold'"
+        (mouseenter)="hoveredIdx = i"
+        (mouseleave)="hoveredIdx = null"
+      >
+        <div class="card-glow"></div>
+        <div class="card-header">
+          <div class="card-emoji">{{ p.emoji }}</div>
+          <div class="card-links">
+            <a *ngIf="p.repo" [href]="p.repo" class="icon-link" title="Code source">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+            </a>
+            <a *ngIf="p.link" [href]="p.link" class="icon-link" title="Voir le projet">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="card-tagline mono">{{ p.tagline }}</div>
+          <h3 class="card-title">{{ p.title }}</h3>
+          <p class="card-desc">{{ p.desc }}</p>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="tag" *ngFor="let t of p.tags">{{ t }}</span>
+          </div>
+          <span class="featured-badge">FEATURED</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other projects grid -->
+    <div class="projects-grid">
+      <div
+        class="project-card small reveal"
+        *ngFor="let p of projects.slice(2); let i = index"
+        [class.color-orange]="p.color === 'orange'"
+        [class.color-gold]="p.color === 'gold'"
+      >
+        <div class="card-header">
+          <div class="card-emoji small">{{ p.emoji }}</div>
+          <div class="card-links">
+            <a *ngIf="p.repo" [href]="p.repo" class="icon-link" title="Code">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+            </a>
+            <a *ngIf="p.link" [href]="p.link" class="icon-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="card-tagline mono">{{ p.tagline }}</div>
+        <h3 class="card-title small">{{ p.title }}</h3>
+        <p class="card-desc small">{{ p.desc }}</p>
+        <div class="card-tags">
+          <span class="tag" *ngFor="let t of p.tags">{{ t }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-cta reveal">
+      <a href="https://github.com/ValereCode" class="btn-glow">
+        Voir tous mes projets sur GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

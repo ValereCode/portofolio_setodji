@@ -1,0 +1,64 @@
+<section id="hero" class="hero">
+  <canvas #canvas class="hero-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-tag reveal">
+      <span class="dot"></span>
+      <span class="mono">Disponible pour de nouveaux projets</span>
+    </div>
+
+    <div class="hero-greeting reveal">
+      <span class="mono greeting-text">Bonjour, je suis</span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="name-chars">{{ displayedTitle }}</span>
+      <span class="cursor-blink" [class.hidden]="typingDone">|</span>
+    </h1>
+
+    <div class="hero-role">
+      <span class="role-text">{{ displayedRole }}</span>
+      <span class="cursor-blink" *ngIf="!typingDone && displayedTitle === titleFull">|</span>
+    </div>
+
+    <p class="hero-desc reveal">
+      Je construis des expériences digitales <span class="accent">élégantes</span> et
+      <span class="accent">performantes</span> — du pixel à l'API,
+      du mobile au web. Chaque ligne de code est une intention.
+    </p>
+
+    <div class="hero-actions reveal">
+      <button class="btn-solid" (click)="scrollTo('#projects')">
+        <span>Voir mes projets</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <button class="btn-glow" (click)="scrollTo('#contact')">
+        Parlons-en
+      </button>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <span class="stat-num">3<span class="accent">+</span></span>
+        <span class="stat-label">Ans d'expérience</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">20<span class="accent">+</span></span>
+        <span class="stat-label">Projets livrés</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Lignes de passion</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="mono">scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>

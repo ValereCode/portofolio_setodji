@@ -1,0 +1,59 @@
+<section id="skills">
+  <div class="section">
+
+    <div class="section-tag reveal">Compétences</div>
+    <h2 class="section-title reveal">
+      Mon arsenal<br /><span>technique</span>
+    </h2>
+
+    <!-- Filter tabs -->
+    <div class="filter-tabs reveal">
+      <button
+        *ngFor="let cat of categories"
+        [class.active]="activeCategory === cat"
+        (click)="setCategory(cat)"
+        class="filter-btn"
+      >
+        {{ cat }}
+      </button>
+    </div>
+
+    <!-- Skills grid -->
+    <div class="skills-grid">
+      <div
+        class="skill-item reveal"
+        *ngFor="let skill of filtered"
+      >
+        <div class="skill-top">
+          <div class="skill-icon">{{ skill.icon }}</div>
+          <div class="skill-info">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-pct mono">{{ skill.level }}<span class="accent">%</span></span>
+          </div>
+        </div>
+        <div class="skill-bar-bg">
+          <div
+            class="skill-bar-fill"
+            [style.width.%]="skill.level"
+          ></div>
+        </div>
+        <div class="skill-cat-tag">{{ skill.category }}</div>
+      </div>
+    </div>
+
+    <!-- Summary row -->
+    <div class="skills-summary reveal">
+      <div class="summary-card" *ngFor="let item of [
+        {num:'4', label:'Années de Flutter', icon:'🦋'},
+        {num:'20+', label:'Apps publiées', icon:'📱'},
+        {num:'5+', label:'Langages maîtrisés', icon:'💻'},
+        {num:'∞', label:'Curiosité', icon:'🔭'}
+      ]">
+        <span class="sum-icon">{{ item.icon }}</span>
+        <span class="sum-num">{{ item.num }}</span>
+        <span class="sum-label">{{ item.label }}</span>
+      </div>
+    </div>
+
+  </div>
+</section>
