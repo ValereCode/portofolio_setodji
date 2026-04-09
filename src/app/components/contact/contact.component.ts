@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import emailjs from '@emailjs/browser';
+
+// TODO: Replace these with your EmailJS credentials from https://www.emailjs.com/
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
 
 @Component({
   selector: 'app-contact',
@@ -21,10 +27,24 @@ export class ContactComponent {
 
   async onSubmit() {
     this.status = 'sending';
-    // Simulate API call — replace with real endpoint
-    await new Promise(r => setTimeout(r, 1800));
-    this.status = 'sent';
-    this.form = { name: '', email: '', subject: '', message: '' };
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:    this.form.name,
+          from_email:   this.form.email,
+          subject:      this.form.subject,
+          message:      this.form.message,
+          to_email:     'setodji2001@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      this.status = 'sent';
+      this.form = { name: '', email: '', subject: '', message: '' };
+    } catch {
+      this.status = 'error';
+    }
   }
 
   resetForm() {
